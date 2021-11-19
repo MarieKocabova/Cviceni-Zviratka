@@ -1,20 +1,19 @@
-import React from 'react';
-import { render } from 'react-dom';
-import './style.css';
+import React from "react";
+import { render } from "react-dom";
+import "./style.css";
+
+import AnimalList from "./components/AnimalList";
+import AnimalDetail from "./components/AnimalDetail";
 
 const App = () => (
-  <div className="container">
-    <header>
-      <div className="logo"></div>
-      <h1>Webová aplikace</h1>
-    </header>
-    <main>
-      <p>Startovací šablona pro webovou aplikaci v Reactu. Vytvořeno pomocí <a href="https://www.npmjs.com/package/create-czechitas-app">create-czechitas-app</a>.</p>
-    </main>
-    <footer>
-      <p>Czechitas, Digitální akademie: Web</p>
-    </footer>
-  </div>
+  <>
+    <h1>Zvířátka v ZOO</h1>
+
+    <div className="container">
+      <AnimalList />
+      <AnimalDetail />
+    </div>
+  </>
 );
 
-render(<App />, document.querySelector('#app'));
+render(<App />, document.querySelector("#app"));
