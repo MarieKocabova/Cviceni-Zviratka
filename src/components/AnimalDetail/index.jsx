@@ -1,41 +1,44 @@
 import React from "react";
 import "./style.css";
+import { useState } from "react";
 
-const AnimalDetail = () => {
+const AnimalDetail = ({ animalData }) => {
+  const [idx, setIdx] = useState(2);
+
   return (
     <div className="detail">
       <div className="detail__obsah">
         <div className="detail__hlavicka">
-          <img className="detail__foto" src="./assets/slon.jpg" alt="xxx" />
+          <img className="detail__foto" src={animalData.zvirata[idx].foto} alt={animalData.zvirata[idx].nazev} />
           <div className="detail__titulek">
             <h2 className="detail__nazev">
-              <span>Slon africký</span>
+              <span>{animalData.zvirata[idx].nazev}</span>
             </h2>
             <div className="detail__latinsky">
-              <span>Loxodonta africana</span>
+              <span>{animalData.zvirata[idx].nazevLatinsky}</span>
             </div>
           </div>
         </div>
 
         <div className="detail__info">
-          <p className="detail__popis">Typickými znaky největších suchozemských savců jsou kly (přeměněné horní řezáky) a pohyblivý chobot, který vznikl srůstem a prodloužením horního pysku a nosu. Velikosti těla odpovídá i množství potravy, které kolísá od 300 do 450 kg. Samec a samice se setkávají pouze v období páření. Zatímco samci vytvářejí mládenecké skupiny nebo žijí samotářsky, samice společně s mláďaty vytvářejí rodinné klany čítající 20 až 30 zvířat. Mládě přichází na svět po březosti 22 měsíců, měří na výšku 1 m a váží 100 kg. Mateřské mléko pije tlamou, chobot se naučí používat teprve ve 3 měsících.</p>
+          <p className="detail__popis">{animalData.zvirata[idx].popis}</p>
 
           <div className="detail__udaje">
             <div className="detail__udaj">
               <h3>Domovina</h3>
-              <p>subsaharská Afrika</p>
+              <p>{animalData.zvirata[idx].domovina}</p>
             </div>
             <div className="detail__udaj">
               <h3>Biotop</h3>
-              <p>savany, polopouště, pouště</p>
+              <p>{animalData.zvirata[idx].biotop}</p>
             </div>
             <div className="detail__udaj">
               <h3>Potrava</h3>
-              <p>tráva, listí, větve</p>
+              <p>{animalData.zvirata[idx].potrava}</p>
             </div>
             <div className="detail__udaj">
               <h3>Velikost</h3>
-              <p>hmotnost 2,7-6,3 t; délka těla 6-7,5 m</p>
+              <p>{animalData.zvirata[idx].velikost}</p>
             </div>
           </div>
         </div>

@@ -2,10 +2,13 @@ import React from "react";
 
 import Animal from "../Animal";
 
-const AnimalList = () => {
+const AnimalList = ({ animalData }) => {
+  console.log(animalData.zvirata);
   return (
     <div className="zvirata">
-      <Animal />
+      {animalData.zvirata.map((anim, idx) => {
+        return <Animal key={idx} foto={anim.foto} nazev={anim.nazev} nazevLatinsky={anim.nazevLatinsky} idx={idx} />;
+      })}
     </div>
   );
 };
