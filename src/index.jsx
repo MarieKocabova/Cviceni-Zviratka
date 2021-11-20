@@ -7,6 +7,7 @@ import AnimalDetail from "./components/AnimalDetail";
 
 const App = () => {
   const [animalData, setAnimalData] = useState(null);
+  const [animalIdx, setAnimalIdx] = useState(0);
 
   const fechtAnimal = () => {
     fetch("https://lrolecek.github.io/zviratka-api/zvirata.json")
@@ -20,13 +21,18 @@ const App = () => {
     fechtAnimal();
   }, []);
 
+  const chooseAnimalDetail = (animalIdx) => {
+    setAnimalIdx(animalIdx);
+    console.log(animalIdx);
+  };
+
   return (
     <>
       <h1>Zvířátka v ZOO</h1>
 
       <div className="container">
-        {animalData !== null || undefined ? <AnimalList animalData={animalData} /> : "loading..."}
-        {animalData !== null || undefined ? <AnimalDetail animalData={animalData} /> : "loading..."}
+        {animalData !== null || undefined ? <AnimalList animalData={animalData} onAnimalChange={chooseAnimalDetail} /> : "loading..."}
+        {animalData !== null || undefined ? <AnimalDetail animalData={animalData} idx={animalIdx} /> : "loading..."}
       </div>
     </>
   );

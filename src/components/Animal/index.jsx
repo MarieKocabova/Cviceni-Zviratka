@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
 
-const Animal = ({ idx, nazev, foto, nazevLatinsky }) => {
+const Animal = ({ idx, nazev, foto, nazevLatinsky, onChange }) => {
   const handleClick = () => {
-    console.log(idx);
+    onChange(idx);
   };
 
   return (

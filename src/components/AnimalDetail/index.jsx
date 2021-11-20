@@ -1,10 +1,7 @@
 import React from "react";
 import "./style.css";
-import { useState } from "react";
 
-const AnimalDetail = ({ animalData }) => {
-  const [idx, setIdx] = useState(2);
-
+const AnimalDetail = ({ animalData, idx }) => {
   return (
     <div className="detail">
       <div className="detail__obsah">
