@@ -23,7 +23,6 @@ const App = () => {
 
   const chooseAnimalDetail = (animalIdx) => {
     setAnimalIdx(animalIdx);
-    console.log(animalIdx);
   };
 
   return (
@@ -31,8 +30,15 @@ const App = () => {
       <h1>Zvířátka v ZOO</h1>
 
       <div className="container">
-        {animalData !== null || undefined ? <AnimalList animalData={animalData} onAnimalChange={chooseAnimalDetail} /> : "loading..."}
-        {animalData !== null || undefined ? <AnimalDetail animalData={animalData} idx={animalIdx} /> : "loading..."}
+        
+        {animalData !== null || undefined ? (
+          <>
+            <AnimalList animalData={animalData} onAnimalChange={chooseAnimalDetail} />
+            <AnimalDetail animalData={animalData} idx={animalIdx} />
+          </>
+        ) : (
+          "loading..."
+        )}
       </div>
     </>
   );

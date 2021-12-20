@@ -3,8 +3,6 @@ import React from "react";
 import Animal from "../Animal";
 
 const AnimalList = ({ animalData, onAnimalChange }) => {
-  console.log(animalData.zvirata);
-
   const handleChange = (idx) => {
     onAnimalChange(idx);
   };
